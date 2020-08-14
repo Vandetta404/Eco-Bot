@@ -1,7 +1,7 @@
 {
-  "name": "hello-express",
-  "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "name": "Eco-Bot",
+  "version": "1.0.1",
+  "description": "A discord bot using Eris & mongoose for leveling system.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -14,7 +14,6 @@
     "node": "12.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
-  },
-  "license": "MIT"
+    "url": "https://github.com/TheMaestro0/Eco-Bot"
+  }
 }
