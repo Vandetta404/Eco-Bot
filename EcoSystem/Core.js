@@ -7,7 +7,6 @@ module.exports = async (client, message) => {
   UserSchema = require("../database/modules/User.js"),
   Member = await client.findOrCreateMember(message.author.id, message.channel.guild.id ),
   User = await client.findOrCreateUser(message.author.id);
-  
 try {
   
 /* >>>> Guild Scores  <<<<*/
@@ -31,10 +30,10 @@ await UserSchema.findOneAndUpdate({ user: User.user}, {xp: (User.xp + 1), level:
 /* >>>> Sorting Guild Scores Ranks  <<<<*/
 await MemberSchema.find({guild: message.channel.guild.id }, async (err, row) => {
 if(err)return;
-let setRanks = row.map((x) => x.user),
+let setRanks = row.map((x) => x.member),
         i = 0;
 while (setRanks[i]) {
-await MemberSchema.findOneAndUpdate({user: setRanks[i], guild: message.channel.guild.id }, { rank: i + 1 });
+await MemberSchema.findOneAndUpdate({member: setRanks[i], guild: message.channel.guild.id }, { rank: i + 1 });
 i++;
 }}).sort({ xp: -1 });
  
